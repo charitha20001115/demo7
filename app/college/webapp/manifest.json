@@ -96,7 +96,6 @@
       "css": []
     },
     "routing": {
-      "config": {},
       "routes": [
         {
           "pattern": ":?query:",
@@ -107,6 +106,11 @@
           "pattern": "stud_t({key}):?query:",
           "name": "stud_tObjectPage",
           "target": "stud_tObjectPage"
+        },
+        {
+          "pattern": "stud_t({key})/stud_tot({key2}):?query:",
+          "name": "stud_t_stud_totObjectPage",
+          "target": "stud_t_stud_totObjectPage"
         }
       ],
       "targets": {
@@ -135,7 +139,25 @@
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/stud_t"
+              "contextPath": "/stud_t",
+              "navigation": {
+                "stud_tot": {
+                  "detail": {
+                    "route": "stud_t_stud_totObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "stud_t_stud_totObjectPage": {
+          "type": "Component",
+          "id": "stud_t_stud_totObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "contextPath": "/stud_t/stud_tot",
+              "navigation": {}
             }
           }
         }
